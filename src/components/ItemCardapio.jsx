@@ -1,4 +1,4 @@
-import styles from '../assets/App.module.css';
+import styles from '../App.module.css';
 
 function ItemCardapio({ nome, descricao, preco, categoria, adicionarItem }) {
     return (
