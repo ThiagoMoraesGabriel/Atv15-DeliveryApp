@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* --- Painel de Status do Restaurante --- */
+.painelGerente {
+  text-align: center;
+  padding: 12px 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.btnInterruptor {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btnInterruptorAberto {
+  background-color: #27ae60;
+}
+
+.btnInterruptorAberto:hover {
+  background-color: #219653;
+  transform: translateY(-2px);
+}
+
+.btnInterruptorFechado {
+  background-color: #e74c3c;
+}
+
+.btnInterruptorFechado:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* --- Container Principal --- */
+.appContainer {
+  padding: 24px 20px 40px 20px;
+  max-width: 640px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  min-height: 100vh;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* --- Cabeçalho do App --- */
+.appHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px dashed #f1f2f6;
+}
+
+.appTitle {
+  margin: 0;
+  color: #e63946; /* Vermelho apetitoso */
+  font-weight: 700;
+  font-size: 1.75rem;
+  letter-spacing: -0.5px;
+}
+
+.cartBadge {
+  background-color: #ffb703; /* Amarelo ouro */
+  color: #1d3557;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(255, 183, 3, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.cartBadge:hover {
+  transform: scale(1.05);
+}
+
+/* --- Filtros de Categoria --- */
+.filtros {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  scrollbar-width: none; /* Oculta scrollbar no Firefox */
+}
+
+.filtros::-webkit-scrollbar {
+  display: none; /* Oculta scrollbar no Chrome/Safari */
+}
+
+.btnFiltro {
+  padding: 8px 20px;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  color: #6c757d;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.btnFiltro:hover {
+  background-color: #e9ecef;
+  color: #212529;
+}
+
+.btnFiltroAtivo {
+  background-color: #e63946;
+  color: #ffffff;
+  border-color: #e63946;
+  box-shadow: 0 4px 10px rgba(230, 57, 70, 0.25);
+}
+
+/* --- Mensagens de Carregamento e Estado Vazio --- */
+.loadingText {
+  text-align: center;
+  color: #e63946;
+  font-size: 1.2rem;
+  margin: 50px 0;
+  font-weight: 600;
+  animation: pulse 1.5s infinite;
+}
+
+.mensagemVazia {
+  text-align: center;
+  color: #8d99ae;
+  font-size: 1rem;
+  margin: 40px 0;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* --- Lista de Cards --- */
+.cardapioLista {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --- Card do Item (ItemCardapio) --- */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #edf2f7;
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-color: #f1a7a6;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.cardNome {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1d3557;
+}
+
+.cardCategoria {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #fff3bf;
+  color: #d97706;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.cardDescricao {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #6c757d;
+  line-height: 1.45;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid #f8f9fa;
+}
+
+.cardPreco {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2a9d8f;
+}
+
+.btnAdicionar {
+  background-color: #e63946;
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 10px rgba(230, 57, 70, 0.2);
+}
+
+.btnAdicionar:hover {
+  background-color: #d62828;
+}
+
+.btnAdicionar:active {
+  transform: scale(0.95);
+}
+
+/* --- Área de Finalização (Checkout) --- */
+.checkoutSection {
+  margin-top: 35px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 16px;
+  border: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.addressInput {
+  padding: 14px 16px;
+  border: 1.5px solid #dee2e6;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ffffff;
+}
+
+.addressInput:focus {
+  border-color: #e63946;
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.15);
+}
+
+.btnConcluir {
+  background-color: #2a9d8f;
+  color: #ffffff;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3);
+}
+
+.btnConcluir:hover {
+  background-color: #218376;
+}
+
+.btnConcluir:active {
+  transform: scale(0.98);
+}
+
+/* --- Modal Overlay e Content --- */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #ffffff;
+  padding: 28px 24px;
+  border-radius: 18px;
+  text-align: center;
+  max-width: 85%;
+  width: 360px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modalContent p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 22px;
+  color: #1d3557;
+  line-height: 1.4;
+}
+
+.btnModal {
+  background-color: #e63946;
+  color: #ffffff;
+  border: none;
+  padding: 10px 32px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btnModal:hover {
+  background-color: #d62828;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* --- Card Vermelho para os Lanches --- */
+.card {
+  background: linear-gradient(135deg, #d63031 0%, #b22222 100%);
+  border: 1px solid #ff7675;
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 6px 18px rgba(214, 48, 49, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #ffffff;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(214, 48, 49, 0.4);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.cardNome {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+}
+
+.cardCategoria {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(4px);
+}
+
+.cardDescricao {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #ffeaa7; /* Creme/amarelo suave para leitura perfeita */
+  line-height: 1.45;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cardPreco {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fdcb6e; /* Amarelo ouro em destaque */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btnAdicionar {
+  background-color: #ffffff;
+  color: #d63031;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btnAdicionar:hover {
+  background-color: #fdcb6e;
+  color: #2d3436;
+  transform: scale(1.05);
+}
+
+.btnAdicionar:active {
+  transform: scale(0.95);
+}
